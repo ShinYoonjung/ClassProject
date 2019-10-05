@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("초간단 계산기");
+        setTitle("초간단 계산기(수정)");
 
         //EditText에 대한 변수 선언
         edit1=(EditText) findViewById(R.id.edit1);
@@ -38,54 +38,77 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1=edit1.getText().toString();
-                num2=edit2.getText().toString();
-                result=Double.parseDouble(num1)+Double.parseDouble(num2);
-                textResult.setText("계산 결과 : "+result);
+                if(edit1.getText().length()==0 || edit2.getText().length()==0) {
+                    Toast.makeText(MainActivity.this, "입력값이 없습니다.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    num1 = edit1.getText().toString();
+                    num2 = edit2.getText().toString();
+                    result = Double.parseDouble(num1) + Double.parseDouble(num2);
+                    textResult.setText("계산 결과 : " + result);
+                }
             }
         });
 
         btnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(edit1.getText().length()==0 || edit2.getText().length()==0) {
+                    Toast.makeText(MainActivity.this, "입력값이 없습니다.", Toast.LENGTH_SHORT).show();
+                }
+                else{
                 num1=edit1.getText().toString();
                 num2=edit2.getText().toString();
                 result=Double.parseDouble(num1)-Double.parseDouble(num2);
-                textResult.setText("계산 결과 : "+result);
+                textResult.setText("계산 결과 : "+result);}
             }
         });
 
         btnMul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1=edit1.getText().toString();
-                num2=edit2.getText().toString();
-                result=Double.parseDouble(num1)*Double.parseDouble(num2);
-                textResult.setText("계산 결과 : "+result);
+                if(edit1.getText().length()==0 || edit2.getText().length()==0) {
+                    Toast.makeText(MainActivity.this, "입력값이 없습니다.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    num1 = edit1.getText().toString();
+                    num2 = edit2.getText().toString();
+                    result = Double.parseDouble(num1) * Double.parseDouble(num2);
+                    textResult.setText("계산 결과 : " + result);
+                }
             }
         });
 
         btnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                num1=edit1.getText().toString();
-                num2=edit2.getText().toString();
-                result=Double.parseDouble(num1)/Double.parseDouble(num2);
-                textResult.setText("계산 결과 : "+result);
+                if(edit1.getText().length()==0 || edit2.getText().length()==0) {
+                    Toast.makeText(MainActivity.this, "입력값이 없습니다.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    num1 = edit1.getText().toString();
+                    num2 = edit2.getText().toString();
+                    result = Double.parseDouble(num1) / Double.parseDouble(num2);
+                    textResult.setText("계산 결과 : " + result);
+                }
             }
         });
 
         btnRest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /*  if ((Double) edit2 == 0) {
-                    Toast.makeText(getApplicationContext(), "0으로 나눌 수 없습니다.",Toast.LENGTH_LONG).show();
+              if(edit1.getText().length()==0 || edit2.getText().length()==0) {
+                  Toast.makeText(MainActivity.this, "입력값이 없습니다.", Toast.LENGTH_SHORT).show();
+              }
+
+              else if (edit2.getText().toString().equals("0")){
+                   Toast.makeText(getApplicationContext(), "0으로 나눌 수 없습니다.",Toast.LENGTH_SHORT).show();
                 } else {
                     num1 = edit1.getText().toString();
                     num2 = edit2.getText().toString();
                     result = Double.parseDouble(num1) % Double.parseDouble(num2);
                     textResult.setText("계산 결과 : " + result);
-                }*/
+                }
             }
         });
     }
